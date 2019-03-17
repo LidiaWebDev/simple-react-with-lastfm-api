@@ -26,7 +26,7 @@ class App extends Component {
     console.log(this.state.query);
     var baseURL = `https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=${
       this.state.query
-    }&api_key=b686750a281378159473653159e27252&format=json`;
+    }&api_key==json`;
 
     console.log(baseURL);
     fetch(baseURL, {
@@ -42,7 +42,7 @@ class App extends Component {
         this.setState({ profilepic });
         console.log("profilepic:", profilepic);
 
-        var albumURL = `https://ws.audioscrobbler.com/2.0/?method=artist.gettoptracks&artist=${artist}&api_key=b686750a281378159473653159e27252&format=json`;
+        var albumURL = `https://ws.audioscrobbler.com/2.0/?method=artist.gettoptracks&artist=${artist}&api_key=&format=json`;
         console.log(albumURL);
         fetch(albumURL, {
           method: "GET"
@@ -54,7 +54,7 @@ class App extends Component {
             this.setState({ tracks });
             console.log(this.state.tracks);
 
-            var TracksUrl = `http://ws.audioscrobbler.com/2.0/?method=chart.gettoptracks&api_key=b686750a281378159473653159e27252&format=json`;
+            var TracksUrl = `http://ws.audioscrobbler.com/2.0/?method=chart.gettoptracks&api_key=&format=json`;
             console.log(TracksUrl);
             fetch(TracksUrl, {
               method: "GET"
@@ -105,7 +105,6 @@ class App extends Component {
               <input
                 type="text"
                 className="form-control"
-                // eslint-disable-next-line react/jsx-no-duplicate-props
                 className="form-controls text-center"
                 placeholder="Enter Any Artist to search"
                 required
@@ -129,11 +128,7 @@ class App extends Component {
             </div>
             <div className="col-md-8 Artistname">
               <h3 className="lead">{this.state.artist}</h3>
-              {/* <span className="label label-info">{this.state.listeners}</span> */}
-              {/* <span className="label label-primary">
-                {this.state.playcount}
-              </span> */}
-            </div>
+              </div>
           </div>
         </div>
         <div className="row Gallery col-md-12">
@@ -157,18 +152,7 @@ class App extends Component {
           </div>
           <div className="col-md-2" />
         </div>
-        {/* <div classname="row Charts col-md-12 border">
-          <ul>
-            {this.state.chart.map(function(track, index) {
-              return (
-                <li className="well" key={index}>
-                  {" "}
-                  <a href={track.url}>{track.name} </a>
-                </li>
-              );
-            })}
-          </ul>
-        </div> */}
+     
       </div>
     );
   }
