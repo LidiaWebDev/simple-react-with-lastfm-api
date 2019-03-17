@@ -7,7 +7,7 @@ class Youtube extends Component {
       height: "390",
       width: "640",
       playerVars: {
-        // https://developers.google.com/youtube/player_parameters
+        // https://developers.google.com/youtube/player_parameters NO API HERE, only a straight page from youtube
         autoplay: 1
       }
     };
